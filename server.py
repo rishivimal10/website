@@ -16,7 +16,7 @@ def page(page_name):
 
 def send_email(data):
 
-    html = Template(Path('email.html').read_text())
+    html = Template(Path('templates/send_email.html').read_text())
     address = data["email"]
     subject = data["subject"]
     message = data["message"]
