@@ -56,4 +56,4 @@ def submit_form():
 
 @app.route('/resume_download/')
 def resume():
-    return send_file("./static/assets/resume_rishi.pdf")
+    return send_file("static/assets/Resume_Rishi.pdf")
