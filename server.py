@@ -50,8 +50,8 @@ def write_to_csv (data):
 def submit_form():
     if request.method == 'POST':
         data = request.form.to_dict()
-        #send_email(data)
+        send_email(data)
         write_to_csv(data)
         return redirect("/thank_you.html")
     else:
-        return "aaaa"
+        return "could not send message"
