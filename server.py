@@ -1,7 +1,7 @@
 import smtplib
 import csv
 from email.message import EmailMessage
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, send_file
 from string import Template
 from pathlib import Path
 app = Flask(__name__)
@@ -54,6 +54,6 @@ def submit_form():
     else:
         return "could not send message"
 
-@app.route('/static/assets/resume_rishi.pdf')
+@app.route('/resume_download/')
 def resume():
-    return render_template("/static/assets/resume_rishi.pdf")
+    return send_file("./static/assets/resume_rishi.pdf")
