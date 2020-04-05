@@ -44,8 +44,6 @@ def write_to_csv (data):
         csv_writer = csv.writer(database, delimiter=',', quotechar=';', quoting=csv.QUOTE_MINIMAL)
         csv_writer.writerow([address,subject, message])
 
-
-
 @app.route('/submit_form', methods=['POST', 'GET'])
 def submit_form():
     if request.method == 'POST':
@@ -55,3 +53,7 @@ def submit_form():
         return redirect("/thank_you.html")
     else:
         return "could not send message"
+
+@app.route('/static/assets/resume_rishi.pdf')
+def resume():
+    return render_template("/static/assets/resume_rishi.pdf")
