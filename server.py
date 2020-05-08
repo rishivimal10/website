@@ -14,6 +14,10 @@ def my_home():
 def page(page_name):
     return render_template(page_name)
 
+@app.route('/resume_download/')
+def resume():
+    return send_file("static/assets/Rishi's Resume.pdf")
+
 def send_email(data):
 
     html = Template(Path('templates/send_email.html').read_text())
@@ -47,13 +51,7 @@ def write_to_csv (data):
 @app.route('/submit_form', methods=['POST', 'GET'])
 def submit_form():
     if request.method == 'POST':
-        data = request.form.to_dict()
-        send_email(data)
-        write_to_csv(data)
         return redirect("/thank_you.html")
     else:
         return "could not send message"
 
-@app.route('/resume_download/')
-def resume():
-    return send_file("static/assets/Resume_Rishi.pdf")
